@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>cube</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"
+		integrity="sha512-UxP+UhJaGRWuMG2YC6LPWYpFQnsSgnor0VUF3BHdD83PS/pOpN+FYbZmrYN+ISX8jnvgVUciqP/fILOXDjZSwg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+
+		body {
+			background-color: black;
+			overflow: hidden;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgb(0, 0, 17);
+			z-index: -1;
+		}
+
+		button {
+			display: block;
+		}
+
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<input type="file" id="f" />
+	<button id="toggleInstructions">Toggle instructions</button>
+	<ul id="instructions" class="hide" style="color: white;">How to use:
+		<li>Download your cube in SVG format from OpenSea (should be in this format by default)</li>
+		<li>Click the "Browse" button below</li>
+		<li>Select your downloaded cube and watch it animate with the preset color and animation options</li>
+		<li>You can customize the default colors by clicking "Toggle color options" below. The format is an array of
+			[r,g,b] number
+			value arrays or hex codes wrapped in quotes (eg - like using your own colors from your OpenPalette tokens)
+		</li>
+	</ul>
+	<button id="restart" class='hide'>Restart animation</button>
+	<button id="toggleColors">Toggle color options</button>
+	<div class="hide" id="optionsWrapper">
+		<p id="errorMsg" class="hide errorMsg" style="color: red;"></p>
+		<textarea type="textarea"
+			placeholder="Input an array of [r, g, b] color arrays or hex code strings (eg - '#fff')" rows="20"
+			id="colors"></textarea>
+		<button id="updateColors">Update colors</button>
+	</div>
+
+	<div id="svg-wrapper"></div>
+	<script type="text/javascript" src="uploader.js"></script>
+	<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="hexRgb.js"></script>
+	<script type="text/javascript" src="colorize.js"></script>
+	<script type="text/javascript" src="animate.js"></script>
+</body>
+
+</html>
